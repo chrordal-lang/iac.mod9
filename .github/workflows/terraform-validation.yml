@@ -32,10 +32,8 @@ jobs:
       - name: TFLint scan
         run: tflint
 
-      - name: Setup Checkov
-        uses: bridgecrewio/checkov-action@v12
-        with:
-          directory: .
+      - name: Install Checkov
+        run: pip install checkov
 
       - name: Run Checkov (compact)
         run: checkov -d . --framework terraform --compact
